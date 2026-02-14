@@ -5,6 +5,7 @@
   imports = [
     ./modules/core.nix
     ./modules/nix-config.nix
+    ./modules/nvidia.nix
     ./modules/packages.nix
     ./modules/services.nix
     ./modules/users.nix
