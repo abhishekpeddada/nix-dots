@@ -5,6 +5,9 @@ let
   hyprPkgs = inputs.hyprland.packages.${system};
 in
 {
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+
   # Hyprland
   programs.hyprland = {
     enable = true;

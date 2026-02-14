@@ -3,17 +3,13 @@
 {
 
   imports = [
-    ./modules/amdgpu.nix
     ./modules/core.nix
-    ./modules/hardware-mod.nix
     ./modules/nix-config.nix
     ./modules/packages.nix
     ./modules/services.nix
     ./modules/users.nix
-    ./modules/game.nix
 
     ./gui/fonts.nix
-    ./gui/greetd.nix
     ./gui/gui.nix
     ./gui/theme.nix
   ];

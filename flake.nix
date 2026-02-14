@@ -17,7 +17,7 @@
     # system
     systemConfig = {
       system = "x86_64-linux";
-      hostname = "nix";
+      hostname = "nixos";
       timezone = "Asia/Kolkata";
       locale = "en_US.UTF-8";
     };
@@ -25,8 +25,8 @@
     # user
     userConfig = {
       shell = "fish";
-      username = "px";
-      name = "px";
+      username = "abhix202";
+      name = "Abhi";
     };
 
     system = systemConfig.system;
@@ -116,8 +116,6 @@
     stylix.url = "github:danth/stylix";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    nix-craft.url = "path:./NixOS/packages/nix-craft";
 
   };
 
