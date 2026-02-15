@@ -63,6 +63,7 @@ in
     mpv
     imv
     ani-cli
+    vlc
 
   ]) ++ (with pkgs-stable; [
     # pkgs-stable

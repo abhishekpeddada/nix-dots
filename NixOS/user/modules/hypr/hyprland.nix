@@ -343,6 +343,7 @@ in
         match:class = $browser
         match:title = ^(Picture-in-Picture)$
         float = on
+	pin = on
         move = (monitor_w-window_w-20) 20
         size = (monitor_w*0.40) (monitor_h*0.40)
       }

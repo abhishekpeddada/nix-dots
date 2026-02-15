@@ -2,7 +2,7 @@
 
 {
   # kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   # magic-key
   boot.kernel.sysctl = {
