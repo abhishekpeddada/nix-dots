@@ -102,10 +102,10 @@ in
           new_optimizations = true;
           xray = true;
           ignore_opacity = true;
-          contrast = 0.85;
-          brightness = 0.85;
-          vibrancy = 0.2;
-          vibrancy_darkness = 0.2;
+          contrast = 1;
+          brightness = 1;
+          vibrancy = 1;
+          vibrancy_darkness = 1;
         };
       };
 
@@ -150,6 +150,7 @@ in
       binds = {
         workspace_back_and_forth = true;
         hide_special_on_workspace_change = true;
+        movefocus_cycles_fullscreen = true;
       };
 
       gesture = "3, horizontal, workspace";
@@ -170,9 +171,9 @@ in
         ];
 
         # vars for animators
-        "$speed_fast" = "4";
-        "$speed_norm" = "6";
-        "$speed_slow" = "8";
+        "$speed_fast" = "2";
+        "$speed_norm" = "4";
+        "$speed_slow" = "6";
 
         "$active_speed" = "$speed_fast";
         "$active_curve" = "fluid";
@@ -200,17 +201,18 @@ in
       bind = [
         # System
         "$mainMod, Q, killactive"
-        "$mainMod, F, fullscreen"
+        #"$mainMod, F, fullscreen"
         "$mainMod, G, togglegroup"
         "$mainMod, T, togglesplit"
         "$mainMod SHIFT, P, pseudo"
         "$mainMod SHIFT, F, togglefloating"
         "$mainMod SHIFT, Q, exec, hyprctl kill"
         "$mainMod ALT, M, exit"
+        "$mainMod, F, fullscreen, 1"
 
         # Applications
         "$mainMod, Return, exec, ${terminal}"
-        "$mainMod, SPACE, exec, ${launcher}"
+        "$mainMod, SPACE,exec, ${launcher}"
         "$mainMod, E, exec, ${fileManager}"
         "$mainMod, B, exec, ${browser}"
         "$mainMod, P, exec, ${powermenu}"
@@ -411,6 +413,7 @@ in
         match:class = ^(.*mpv.*|.*imv.*|.*vlc.*)$
         float = on
         center = on
+        pin = on
         size = (monitor_w*0.60) (monitor_h*0.60)
         suppress_event = maximize
       }

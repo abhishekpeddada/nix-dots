@@ -45,9 +45,10 @@
     '';
   };
 
-  # DNS & TLS
+# DNS & TLS
   networking = {
     nameservers = [
+      "94.140.14.14" "94.140.15.15"
       "1.1.1.1" "1.0.0.1" # Cloudflare
       "9.9.9.9" "149.112.112.112" # Quad9
     ];
@@ -65,6 +66,13 @@
       };
     };
   };
+
+ networking.networkmanager.settings = {
+  connection = {
+    "ipv4.ignore-auto-dns" = "yes";
+    "ipv6.ignore-auto-dns" = "yes";
+  };
+};
 
   # timezone.
   time = {

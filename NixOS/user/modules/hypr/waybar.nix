@@ -31,6 +31,7 @@ in
           "group/sysinfo"
           "pulseaudio"
           "network"
+          "custom/network-speed"
           "tray"
         ];
 
@@ -114,12 +115,18 @@ in
 
         network = {
           format = "{ifname}";
-          "format-wifi" = "{icon} {essid}";
+          "format-wifi" = ''{icon} {essid}'';
           "format-ethernet" = "󰈀 {ifname}";
           "format-disconnected" = "󰤮 Offline";
+          "format-alt" = " {bandwidthDownBytes}  {bandwidthUpBytes}";
           "max-length" = 20;
           interval = 10;
           "format-icons" = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
+        };
+
+        "custom/network-speed" = {
+          exec = ''${./scripts/network-speed-loop.sh}'';
+          format = "{}";
         };
 
         tray = {
@@ -167,10 +174,11 @@ in
       #network,
       #pulseaudio,
       #tray,
+      #custom-network-speed,
       #sysinfo,
       #taskbar {
         background: ${c.base01};
-        padding: 0px 8px;
+        padding: 0px 16px; /* Increased horizontal padding */
         margin: 4px;
         border-radius: 8px;
       }
@@ -181,6 +189,7 @@ in
       #network:hover,
       #pulseaudio:hover,
       #tray:hover,
+      #custom-network-speed:hover,
       #taskbar button:hover {
         background-color: ${c.base02};
         transition: background-color 0.2s;
@@ -254,8 +263,15 @@ in
       #network {
         color: ${c.base0E};
       }
+      #network.alt {
+        color: ${c.base0F};
+      }
       #pulseaudio {
         color: ${c.base0A};
+      }
+      #custom-network-speed {
+        color: ${c.base0F};
+        min-width: 150px;
       }
     '';
   };

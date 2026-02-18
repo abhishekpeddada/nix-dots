@@ -24,7 +24,7 @@
     };
 
     polarity = "dark";
-    image = ./../backgrounds/default.jpg;
+    image = ./../backgrounds/garuda.png;
 
     fonts = {
       monospace = {

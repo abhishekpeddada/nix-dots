@@ -64,7 +64,7 @@ in
     imv
     ani-cli
     vlc
-
+    flutter
   ]) ++ (with pkgs-stable; [
     # pkgs-stable
   ]);
