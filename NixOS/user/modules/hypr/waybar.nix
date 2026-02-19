@@ -271,7 +271,7 @@ in
       }
       #custom-network-speed {
         color: ${c.base0F};
-        min-width: 150px;
+        min-width: 200px;
       }
     '';
   };

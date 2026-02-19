@@ -29,6 +29,7 @@
       enable = true;
       wifi.macAddress = "random";
       wifi.backend = "iwd";
+      dns = lib.mkForce "none"; # Let systemd-resolved handle DNS
     };
 
     # network firewall
@@ -43,36 +44,21 @@
     extraHosts = ''
       185.199.111.133 raw.githubusercontent.com
     '';
-  };
-
-# DNS & TLS
-  networking = {
-    nameservers = [
-      "94.140.14.14" "94.140.15.15"
-      "1.1.1.1" "1.0.0.1" # Cloudflare
-      "9.9.9.9" "149.112.112.112" # Quad9
-    ];
-    networkmanager.dns = "systemd-resolved";
+    
   };
 
   services.resolved = {
     enable = true;
-    settings = {
+    settings = lib.mkForce {
       Resolve = {
+        DNS = "94.140.14.14#dns.adguard.com 94.140.15.15#dns.adguard.com";
         DNSSEC = "true";
-        Domains = [ "~." ];
-        FallbackDNS = [ "1.1.1.1" "9.9.9.9" ];
         DNSOverTLS = "yes";
+        Domains = "~.";
+        UseDomains = "no";
       };
     };
   };
-
- networking.networkmanager.settings = {
-  connection = {
-    "ipv4.ignore-auto-dns" = "yes";
-    "ipv6.ignore-auto-dns" = "yes";
-  };
-};
 
   # timezone.
   time = {

@@ -64,7 +64,7 @@ in
     imv
     ani-cli
     vlc
-    flutter
+    gemini-cli-bin
   ]) ++ (with pkgs-stable; [
     # pkgs-stable
   ]);

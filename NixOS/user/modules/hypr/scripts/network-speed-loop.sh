@@ -7,15 +7,20 @@ IFACE=$(ip route | grep default | sed -e "s/^.*dev.//" -e "s/.proto.*//")
 RX_PREV=$(grep "$IFACE:" /proc/net/dev | awk '{print $2}')
 TX_PREV=$(grep "$IFACE:" /proc/net/dev | awk '{print $10}')
 
-# Function to format bytes
+# Function to format bytes using awk for better formatting and GB/s support
 format_speed() {
-    if [ "$1" -lt 1024 ]; then
-        echo "${1} B/s"
-    elif [ "$1" -lt 1048576 ]; then
-        echo "$(echo "scale=1; $1 / 1024" | bc) KB/s"
-    else
-        echo "$(echo "scale=1; $1 / 1048576" | bc) MB/s"
-    fi
+    awk -v speed="$1" '
+    BEGIN {
+        if (speed < 1024) {
+            printf "%.0f B/s", speed;
+        } else if (speed < 1048576) {
+            printf "%.1f KB/s", speed / 1024;
+        } else if (speed < 1073741824) {
+            printf "%.1f MB/s", speed / 1048576;
+        } else {
+            printf "%.1f GB/s", speed / 1073741824;
+        }
+    }'
 }
 
 
