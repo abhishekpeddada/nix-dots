@@ -57,6 +57,7 @@ in
     gdk-pixbuf
     libxkbcommon
     xorg.libX11
+    antigravity
     
     # dependencies
     javaPackages.compiler.openjdk25
@@ -79,6 +80,7 @@ in
     ani-cli
     vlc
     gemini-cli-bin
+    brave
   ]) ++ (with pkgs-stable; [
     # pkgs-stable
   ]);

@@ -28,9 +28,7 @@
     networkmanager = {
       enable = true;
       wifi.macAddress = "random";
-      wifi.backend = "iwd";
-      dns = lib.mkForce "none"; # Let systemd-resolved handle DNS
-    };
+      wifi.backend = "iwd";    };
 
     # network firewall
     firewall = {
@@ -45,19 +43,6 @@
       185.199.111.133 raw.githubusercontent.com
     '';
     
-  };
-
-  services.resolved = {
-    enable = true;
-    settings = lib.mkForce {
-      Resolve = {
-        DNS = "94.140.14.14#dns.adguard.com 94.140.15.15#dns.adguard.com";
-        DNSSEC = "true";
-        DNSOverTLS = "yes";
-        Domains = "~.";
-        UseDomains = "no";
-      };
-    };
   };
 
   # timezone.
