@@ -28,7 +28,6 @@ in
         monitor = "";
         path = "${config.stylix.image}";
         color = "${c.base00}";
-        blur_passes = 2;
         contrast = 0.90;
         brightness = 0.40;
         vibrancy = 0.20;

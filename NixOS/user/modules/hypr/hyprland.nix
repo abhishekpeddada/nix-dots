@@ -85,9 +85,9 @@ in
         rounding = 10;
         rounding_power = 4.0;
 
-        active_opacity = 0.85;
-        inactive_opacity = 0.80;
-        fullscreen_opacity = 0.95;
+        active_opacity = 1.0;
+        inactive_opacity = 1.0;
+        fullscreen_opacity = 1.0;
 
         dim_modal = true;
         dim_inactive = false;
@@ -96,7 +96,7 @@ in
         dim_around = 0.8;
 
         blur = {
-          enabled = true;
+          enabled = false;
           size = 10;
           passes = 2;
           new_optimizations = true;
@@ -421,7 +421,6 @@ in
       layerrule {
         name = Bar
         match:namespace = ^(waybar)$
-        blur = on
         ignore_alpha = 0
         animation = slide
       }
@@ -429,7 +428,6 @@ in
       layerrule {
         name = Notifications
         match:namespace = ^(notifications)$
-        blur = on
         ignore_alpha = 0
         animation = slide
       }
@@ -437,7 +435,6 @@ in
       layerrule {
         name = Launcher
         match:namespace = ^(launcher|fuzzel|wofi|rofi|logout_dialog|wlogout|powermenu)$
-        blur = on
         dim_around = on
         ignore_alpha = 0
         animation = slide
