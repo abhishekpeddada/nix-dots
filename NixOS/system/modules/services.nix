@@ -11,7 +11,7 @@
 
     # logind.conf
     logind.settings.Login = {
-      lidSwitch = "suspend";
+      lidSwitch = "susend";
       lidSwitchExternalPower = "suspend";
       HandlePowerKey = "ignore";
       HandlePowerKeyLongPress= "poweroff";

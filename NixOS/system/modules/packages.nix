@@ -40,10 +40,24 @@ in
     git-filter-repo
     gh glab
     lazygit
+    flutter
+    android-studio
     vscodium
     neovim
     neovide
-
+    cmake
+    ninja
+    pkg-config
+    gtk3
+    alsa-lib
+    glib
+    pango
+    cairo
+    atk
+    gdk-pixbuf
+    libxkbcommon
+    xorg.libX11
+    
     # dependencies
     javaPackages.compiler.openjdk25
 
