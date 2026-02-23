@@ -58,7 +58,8 @@ in
     libxkbcommon
     xorg.libX11
     antigravity
-    
+    python313Packages.pip
+
     # dependencies
     javaPackages.compiler.openjdk25
 
