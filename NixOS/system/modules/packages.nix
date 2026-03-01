@@ -59,7 +59,9 @@ in
     xorg.libX11
     antigravity
     python313Packages.pip
-
+    python315
+    nodejs_24
+    
     # dependencies
     javaPackages.compiler.openjdk25
 
