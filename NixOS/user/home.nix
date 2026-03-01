@@ -15,7 +15,17 @@
   home = {
     username = userConfig.username;
     homeDirectory = "/home/"+userConfig.username;
+    file.".config/sounds/error.mp3".source = ./sounds/error.mp3;
   };
+
+  programs.fish.interactiveShellInit = ''
+    function play_error_sound --on-event fish_postexec
+      if test $status -ne 0
+        mpv --no-video --really-quiet --speed=0.5 ~/.config/sounds/error.mp3 &
+        disown
+      end
+    end
+  '';
   
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
