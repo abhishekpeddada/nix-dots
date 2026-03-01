@@ -21,7 +21,7 @@
   programs.fish.interactiveShellInit = ''
     function play_error_sound --on-event fish_postexec
       if test $status -ne 0
-        mpv --no-video --really-quiet --speed=0.5 ~/.config/sounds/error.mp3 &
+        mpv --no-video --really-quiet ~/.config/sounds/error.mp3 &
         disown
       end
     end
